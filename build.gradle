@@ -1,0 +1,130 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+repositories {
+    mavenCentral()
+    maven { //Hueso, Astral Sorcery, etc.
+        name = "Curseforge Maven"
+        url = "http://minecraft.curseforge.com/api/maven/"
+    }
+    maven { //JEI - main
+        name = "Progwml6 maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+    maven { //JEI - mirror
+        name = "ModMaven"
+        url = "modmaven.k-4u.nl"
+    }
+    maven { //Baubles
+        name = "thiakil"
+        url = "http://maven.thiakil.com"
+    }
+    maven { //Thaumcraft
+        name = "Minecraft Mod Development maven"
+        url = "https://maven.mcmoddev.com"
+    }
+    maven { //Botania, ImmEng
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com"
+    }
+    maven { //Thermal Expansion
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net/"
+    }
+    maven { //Deps for CoFH
+        name = "ChickenBones Maven"
+        url = "http://chickenbones.net/maven/"
+    }
+    maven { //EnderCore
+        name = "Tterrag's maven"
+        url = "https://maven.tterrag.com"
+    }
+    maven { //EnderIO
+        name = "EnderIO maven"
+        url = "https://maven2.tterrag.com"
+    }
+    maven {
+        name = "IC2"
+        url = "http://maven.ic2.player.to/"
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "0.4"
+group = "hubry.huesoaddons"
+archivesBaseName = "huesoaddons"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2768"
+    runDir = "run"
+
+    mappings = "stable_39"
+    useDepAts = true
+    makeObfSourceJar = false
+    
+    replace '@VERSION@', project.version
+    replaceIn 'HuesoAddons.java'
+}
+
+task srcJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.java
+}
+tasks.build.dependsOn srcJar
+
+// Welcome to deobf dep hell, I guess?
+dependencies {
+//    deobfCompile 'huesodewiki:huesodewiki:1.6.0b' //Manual for now, because source jar is not deobfed, waiting for Xbony to release
+    
+    deobfCompile "mezz.jei:jei_1.12.2:4.10.0.198"
+
+    deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
+    
+    deobfCompile 'thaumcraft:Thaumcraft:1.12.2:6.1.BETA26'
+    compileOnly "astral-sorcery:AstralSorcery:1.12.2:1.9.4"
+    compileOnly "vazkii.botania:Botania:r1.10-357.7"
+//
+//    deobfCompile "cofh:RedstoneFlux:1.12-2.0.2.+:universal"
+//
+//    CoFH stuff is on older mappings and releases deobf builds, so you need to manually specify compileOnly deobf + runtimeOnly universal. Or something.
+//    compileOnly("cofh:CoFHCore:1.12.2-4.5.3.20:deobf") { transitive = false }
+////    runtimeOnly("cofh:CoFHCore:1.12.2-4.5.3.20:universal") { transitive = false }
+//    compileOnly "cofh:CoFHWorld:1.12.2-1.2.0.5:universal"
+//    compileOnly("cofh:ThermalFoundation:1.12.2-2.5.0.19:universal") { transitive = false }
+//    compileOnly "codechicken:CodeChickenLib:1.12.2-3.1.7.+:universal"
+    compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
+        exclude group: 'mezz.jei'
+    }
+
+    compileOnly "blusunrize:ImmersiveEngineering:0.12-86-469"
+    
+    compileOnly "info.loenwind.autosave:AutoSave:1.12.2-1.0.8"
+    compileOnly "com.enderio:EnderIO:1.12.2-5.0.36"
+    deobfCompile "net.industrial-craft:industrialcraft-2:2.8.99-ex112"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+    
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

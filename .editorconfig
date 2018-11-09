@@ -1,0 +1,9 @@
+# EditorConfig for automatically setting some code style settings
+# See https://editorconfig.org
+
+[*.java]
+indent_style = tab
+indent_size = 4
+continuation_indent_size = 8
+trim_trailing_whitespace = true
+insert_final_newline = true

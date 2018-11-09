@@ -1,0 +1,16 @@
+[
+{
+  "modid": "huesoaddons",
+  "name": "HuesoAddons",
+  "description": "More mod integration for HuesoDeWiki.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Hubry"],
+  "credits": "Xbony2 - for HuesoDeWiki",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
