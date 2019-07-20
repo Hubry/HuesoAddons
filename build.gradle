@@ -93,25 +93,17 @@ dependencies {
     deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
     
     deobfCompile 'thaumcraft:Thaumcraft:1.12.2:6.1.BETA26'
-    compileOnly "astral-sorcery:AstralSorcery:1.12.2:1.9.4"
+    compileOnly "astral-sorcery:AstralSorcery:1.12.2:1.10.19"
     compileOnly "vazkii.botania:Botania:r1.10-357.7"
-//
-//    deobfCompile "cofh:RedstoneFlux:1.12-2.0.2.+:universal"
-//
-//    CoFH stuff is on older mappings and releases deobf builds, so you need to manually specify compileOnly deobf + runtimeOnly universal. Or something.
-//    compileOnly("cofh:CoFHCore:1.12.2-4.5.3.20:deobf") { transitive = false }
-////    runtimeOnly("cofh:CoFHCore:1.12.2-4.5.3.20:universal") { transitive = false }
-//    compileOnly "cofh:CoFHWorld:1.12.2-1.2.0.5:universal"
-//    compileOnly("cofh:ThermalFoundation:1.12.2-2.5.0.19:universal") { transitive = false }
-//    compileOnly "codechicken:CodeChickenLib:1.12.2-3.1.7.+:universal"
+    
     compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
         exclude group: 'mezz.jei'
     }
 
     compileOnly "blusunrize:ImmersiveEngineering:0.12-86-469"
     
-    compileOnly "info.loenwind.autosave:AutoSave:1.12.2-1.0.8"
-    compileOnly "com.enderio:EnderIO:1.12.2-5.0.36"
+    deobfCompile "projecte:ProjectE:1.12.2:PE1.4.1"
+
     deobfCompile "net.industrial-craft:industrialcraft-2:2.8.99-ex112"
 }
 
