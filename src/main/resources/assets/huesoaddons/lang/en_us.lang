@@ -1,0 +1,5 @@
+commands.huesoaddons.spellinfobox.usage=/spellinfobox <spellpiece>
+commands.huesoaddons.spellinfobox.error=An unexpected error has occured while processing spell piece.
+commands.huesoaddons.spellinfobox.success=Copied infobox for spell piece %s to the clipboard.
+commands.huesoaddons.spellinfobox.placeholders=Remember to replace the placeholder text!
+

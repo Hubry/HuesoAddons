@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import xbony2.huesodewiki.api.IWikiRecipe;
@@ -13,6 +14,7 @@ import xbony2.huesodewiki.recipe.RecipeCreator;
 import xbony2.huesodewiki.recipe.recipes.CraftingRecipe;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -58,6 +60,7 @@ public class HuesoAddons {
 	public void postInit(FMLPostInitializationEvent event) {
 		modules.forEach(IModule::postInit);
 	}
+
 
 	public static void addModule(IModule module) {
 		modules.add(module);

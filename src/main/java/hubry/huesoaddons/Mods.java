@@ -7,6 +7,7 @@ import hubry.huesoaddons.module.enderio.EnderIOModule;
 import hubry.huesoaddons.module.immeng.ImmEngModule;
 import hubry.huesoaddons.module.jei.HuesoJEIPlugin;
 import hubry.huesoaddons.module.projecte.ProjectEModule;
+import hubry.huesoaddons.module.psi.PsiModule;
 import hubry.huesoaddons.module.thaumcraft.ThaumcraftModule;
 import hubry.huesoaddons.module.thermalexp.ThermalExpModule;
 import net.minecraftforge.fml.common.Loader;
@@ -26,6 +27,7 @@ public enum Mods {
 	ENDERIO("enderio", EnderIOModule::new),
 	IMMENG("immersiveengineering", ImmEngModule::new),
 	PROJECTE("projecte", ProjectEModule::new),
+	PSI("psi", PsiModule::new),
 	THAUMCRAFT("thaumcraft", ThaumcraftModule::new),
 	THERMALEXP("thermalexpansion", ThermalExpModule::new),
 	;
