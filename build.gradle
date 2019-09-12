@@ -57,7 +57,7 @@ repositories {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "0.5"
+version = "0.5.1"
 group = "hubry.huesoaddons"
 archivesBaseName = "huesoaddons"
 
