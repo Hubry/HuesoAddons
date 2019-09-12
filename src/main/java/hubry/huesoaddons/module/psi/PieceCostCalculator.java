@@ -130,20 +130,11 @@ public final class PieceCostCalculator {
 		}
 		if (param == null) throw new NullPointerException("Param is null?");
 		String name = I18n.format(param.name);
-		String complexity = calcValue(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.COMPLEXITY)).toArray(), name);
-		String potency = calcValue(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.POTENCY)).toArray(), name);
-		String cost = calcValue(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.COST)).toArray(), name);
+		String complexity = Formula.calc(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.COMPLEXITY)).toArray(), name);
+		String potency = Formula.calc(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.POTENCY)).toArray(), name);
+		String cost = Formula.calc(Arrays.stream(metas).mapToInt(m -> m.stats.get(EnumSpellStat.COST)).toArray(), name);
 
 		return new Result(complexity, potency, cost);
-	}
-
-	@Nullable
-	private static String calcValue(int[] ints, String usedParam) {
-		for (Formula1 formula : Formula1.values()) {
-			if (formula.canApply(ints))
-				return formula.map(ints, usedParam);
-		}
-		return null;
 	}
 
 	private static String resultWrap(int value) {
@@ -163,55 +154,6 @@ public final class PieceCostCalculator {
 
 	private static void setNumber(PieceConstantNumber piece, int value) {
 		piece.valueStr = String.valueOf(value);
-	}
-
-	/**
-	 * A basic checker for mathematical formulas with one argument.
-	 */
-	//TODO quadratic?
-	public enum Formula1 {
-		CONSTANT {
-			@Override
-			public boolean canApply(int[] ints) {
-				int i = ints[0];
-				return Arrays.stream(ints).allMatch(j -> j == i);
-			}
-
-			@Override
-			public String map(int[] ints, String paramName) {
-				return String.valueOf(ints[0]);
-			}
-		},
-		LINEAR {
-			@Override
-			public boolean canApply(int[] ints) {
-				int step = ints[1] - ints[0];
-				for (int i = 2; i < ints.length; i++) {
-					if (ints[i] - ints[i - 1] != step)
-						return false;
-				}
-				return true;
-			}
-
-			@Override
-			public String map(int[] ints, String paramName) {
-				int step = ints[1] - ints[0];
-				int remainder = ints[0] - step;
-				String ret = step + "&times;" + paramName;
-				if (step == 1) {
-					ret = paramName;
-				}
-				if (remainder == 0) {
-					return ret;
-				} else {
-					return ret + " + " + remainder;
-				}
-			}
-		};
-
-		public abstract boolean canApply(int[] ints);
-
-		public abstract String map(int[] ints, String paramName);
 	}
 
 	public static class Result {
@@ -254,6 +196,5 @@ public final class PieceCostCalculator {
 			if (!"".equals(value))
 				list.add(name, value != null ? value : FAIL_MESSAGE);
 		}
-
 	}
 }
