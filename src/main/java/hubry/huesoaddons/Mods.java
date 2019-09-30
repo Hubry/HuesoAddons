@@ -3,13 +3,11 @@ package hubry.huesoaddons;
 import hubry.huesoaddons.common.config.Config;
 import hubry.huesoaddons.module.astralsorcery.AstralModule;
 import hubry.huesoaddons.module.botania.BotaniaModule;
-import hubry.huesoaddons.module.enderio.EnderIOModule;
 import hubry.huesoaddons.module.immeng.ImmEngModule;
 import hubry.huesoaddons.module.jei.HuesoJEIPlugin;
 import hubry.huesoaddons.module.projecte.ProjectEModule;
 import hubry.huesoaddons.module.psi.PsiModule;
 import hubry.huesoaddons.module.thaumcraft.ThaumcraftModule;
-import hubry.huesoaddons.module.thermalexp.ThermalExpModule;
 import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
@@ -24,12 +22,12 @@ import java.util.function.Supplier;
 public enum Mods {
 	ASTRAL("astralsorcery", AstralModule::new),
 	BOTANIA("botania", BotaniaModule::new),
-	ENDERIO("enderio", EnderIOModule::new),
+	//ENDERIO("enderio", EnderIOModule::new),
 	IMMENG("immersiveengineering", ImmEngModule::new),
 	PROJECTE("projecte", ProjectEModule::new),
 	PSI("psi", PsiModule::new),
 	THAUMCRAFT("thaumcraft", ThaumcraftModule::new),
-	THERMALEXP("thermalexpansion", ThermalExpModule::new),
+	//THERMALEXP("thermalexpansion", ThermalExpModule::new),
 	;
 
 	public final String modid;

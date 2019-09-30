@@ -96,15 +96,15 @@ dependencies {
     compileOnly "astral-sorcery:AstralSorcery:1.12.2:1.10.19"
     compileOnly "vazkii.botania:Botania:r1.10-357.7"
     
-    compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
-        exclude group: 'mezz.jei'
-    }
+//    compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
+//        exclude group: 'mezz.jei'
+//    }
 
     compileOnly "blusunrize:ImmersiveEngineering:0.12-86-469"
 
     compileOnly "projecte:ProjectE:1.12.2:PE1.4.1"
 
-    deobfCompile "net.industrial-craft:industrialcraft-2:2.8.99-ex112"
+//    deobfCompile "net.industrial-craft:industrialcraft-2:2.8.99-ex112"
     
     deobfCompile "vazkii.autoreglib:AutoRegLib:1.3-33.34"
     deobfCompile "vazkii.psi:Psi:r1.1-78.77"
