@@ -86,7 +86,7 @@ tasks.build.dependsOn srcJar
 
 // Welcome to deobf dep hell, I guess?
 dependencies {
-//    deobfCompile 'huesodewiki:huesodewiki:1.6.0b' //Manual for now, because source jar is not deobfed, waiting for Xbony to release
+    deobfCompile 'huesodewiki:huesodewiki:1.7.0a'
     
     deobfCompile "mezz.jei:jei_1.12.2:4.10.0.198"
 

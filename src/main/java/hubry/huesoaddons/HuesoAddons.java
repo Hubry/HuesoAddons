@@ -22,7 +22,7 @@ import java.util.function.Predicate;
 		modid = HuesoAddons.MODID,
 		name = HuesoAddons.NAME,
 		version = HuesoAddons.VERSION,
-		dependencies = "required-after:huesodewiki",
+		dependencies = "required-after:huesodewiki@[1.7.0a,)",
 		clientSideOnly = true,
 		guiFactory = "hubry.huesoaddons.common.config.GuiFactory"
 )
