@@ -6,6 +6,7 @@ import net.minecraftforge.oredict.OreIngredient;
 import xbony2.huesodewiki.Utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Builder class for template parameters.
@@ -45,6 +46,15 @@ public class ParamList {
 	 * Adds a param for multiple stacks in the same input.
 	 */
 	public ParamList stacks(String key, ItemStack[] value) {
+		StringBuilder builder = new StringBuilder();
+		for (ItemStack stack : value) {
+			builder.append(Utils.outputItem(stack));
+		}
+		params.add(new ParamPair(key, builder.toString()));
+		return this;
+	}
+
+	public ParamList stacks(String key, List<ItemStack> value) {
 		StringBuilder builder = new StringBuilder();
 		for (ItemStack stack : value) {
 			builder.append(Utils.outputItem(stack));

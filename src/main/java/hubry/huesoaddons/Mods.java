@@ -5,6 +5,7 @@ import hubry.huesoaddons.module.astralsorcery.AstralModule;
 import hubry.huesoaddons.module.botania.BotaniaModule;
 import hubry.huesoaddons.module.immeng.ImmEngModule;
 import hubry.huesoaddons.module.jei.HuesoJEIPlugin;
+import hubry.huesoaddons.module.mekanism.MekanismModule;
 import hubry.huesoaddons.module.projecte.ProjectEModule;
 import hubry.huesoaddons.module.psi.PsiModule;
 import hubry.huesoaddons.module.thaumcraft.ThaumcraftModule;
@@ -24,6 +25,7 @@ public enum Mods {
 	BOTANIA("botania", BotaniaModule::new),
 	//ENDERIO("enderio", EnderIOModule::new),
 	IMMENG("immersiveengineering", ImmEngModule::new),
+	MEKANISM("mekanism", MekanismModule::new),
 	PROJECTE("projecte", ProjectEModule::new),
 	PSI("psi", PsiModule::new),
 	THAUMCRAFT("thaumcraft", ThaumcraftModule::new),

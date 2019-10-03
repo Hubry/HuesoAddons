@@ -7,6 +7,7 @@ Mod integration for HuesoDeWiki, Xbony2's helper mod for the Official FTB Wiki.
 * Astral Sorcery (recipes)
 * Botania (recipes)
 * JEI (page creation by hovering over an item in JEI)
+* Mekanism (metallurgic infuser, purification chamber, enrichment chamber)
 * ProjectE (EMC of item, item EMC capacity in infoboxes)
 * Psi (spell piece infobox creation through `/spellinfobox`)
 * Thaumcraft (recipes, item aspects in infobox)

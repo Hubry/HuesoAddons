@@ -1,5 +1,6 @@
 package hubry.huesoaddons.common.recipe;
 
+import hubry.huesoaddons.HuesoAddons;
 import net.minecraft.item.ItemStack;
 import xbony2.huesodewiki.api.IWikiRecipe;
 
@@ -46,8 +47,12 @@ public abstract class BasicRecipe<T> implements IWikiRecipe {
 	@Override
 	public final String getRecipes(ItemStack stack) {
 		StringBuilder builder = new StringBuilder();
-		for (T recipe : gatherRecipes(stack)) {
-			builder.append(outputRecipe(recipe)).append('\n');
+		try {
+			for (T recipe : gatherRecipes(stack)) {
+				builder.append(outputRecipe(recipe)).append('\n');
+			}
+		} catch (Exception e) {
+			HuesoAddons.LOGGER.error("Exception occured while processing recipes of template {}", name, e);
 		}
 		return builder.toString();
 	}
