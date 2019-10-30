@@ -65,7 +65,7 @@ archivesBaseName = "huesoaddons"
 //   and append first 6 chars of the commit sha otherwise
 if (System.getenv().GITHUB_SHA != null) {
     def message = System.getenv().LAST_COMMIT_MESSAGE
-    if(message != null && message.contains("[Build]"))
+    if (message != null && message.contains("[Build]"))
         println("##[set-output name=version;]${project.version}")
     else
         version += "-${System.getenv().GITHUB_SHA.substring(0, 6)}"
@@ -83,7 +83,7 @@ minecraft {
     mappings = "stable_39"
 //  useDepAts = true
     makeObfSourceJar = false
-    
+
     replace '@VERSION@', project.version
     replaceIn 'HuesoAddons.java'
 }
@@ -97,7 +97,7 @@ tasks.build.dependsOn srcJar
 // Welcome to deobf dep hell, I guess?
 dependencies {
     deobfCompile 'huesodewiki:huesodewiki:1.7.0a'
-    
+
     deobfCompile "mezz.jei:jei_1.12.2:4.15.0.268"
 
     deobfCompile "com.azanor.baubles:Baubles:1.12-1.5.2"
@@ -105,17 +105,17 @@ dependencies {
     compileOnly 'thaumcraft:Thaumcraft:1.12.2:6.1.BETA26'
     compileOnly "astral-sorcery:AstralSorcery:1.12.2:1.10.19"
     compileOnly "vazkii.botania:Botania:r1.10-357.7"
-    
-//    compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
-//        exclude group: 'mezz.jei'
-//    }
+
+//  compileOnly("cofh:ThermalExpansion:1.12.2-5.5.0.30:universal") {
+//      exclude group: 'mezz.jei'
+//  }
 
     compileOnly "blusunrize:ImmersiveEngineering:0.12-86-469"
 
     compileOnly "projecte:ProjectE:1.12.2:PE1.4.1"
 
 //    deobfCompile "net.industrial-craft:industrialcraft-2:2.8.99-ex112"
-    
+
     deobfCompile "vazkii.autoreglib:AutoRegLib:1.3-33.34"
     deobfCompile "vazkii.psi:Psi:r1.1-78.77"
     
@@ -130,7 +130,7 @@ processResources {
         include 'mcmod.info'
         expand 'version': project.version, 'mcversion': project.minecraft.version
     }
-    
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
