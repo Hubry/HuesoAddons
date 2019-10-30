@@ -57,9 +57,19 @@ repositories {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "0.6"
+version = "0.6.2"
 group = "hubry.huesoaddons"
 archivesBaseName = "huesoaddons"
+
+// If ran through Github Actions, publish a release if message says it's a build, 
+//   and append first 6 chars of the commit sha otherwise
+if (System.getenv().GITHUB_SHA != null) {
+    def message = System.getenv().LAST_COMMIT_MESSAGE
+    if(message != null && message.contains("[Build]"))
+        println("##[set-output name=version;]${project.version}")
+    else
+        version += "-${System.getenv().GITHUB_SHA.substring(0, 6)}"
+}
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
