@@ -20,7 +20,7 @@ public class RunicAltarRecipe extends PetalApothecaryRecipe {
 	public List<? extends RecipeRuneAltar> gatherRecipes(ItemStack stack) {
 		List<RecipeRuneAltar> list = new ArrayList<>();
 		for (RecipeRuneAltar recipe : BotaniaAPI.runeAltarRecipes) {
-			if (stack.isItemEqual(recipe.getOutput())) {
+			if (BotaniaModule.isOutput(recipe.getOutput(), stack)) {
 				list.add(recipe);
 			}
 		}

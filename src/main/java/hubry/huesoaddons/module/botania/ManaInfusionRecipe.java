@@ -21,7 +21,7 @@ public class ManaInfusionRecipe extends BasicRecipe<RecipeManaInfusion> {
 	public List<? extends RecipeManaInfusion> gatherRecipes(ItemStack stack) {
 		List<RecipeManaInfusion> list = new ArrayList<>();
 		for (RecipeManaInfusion recipe : BotaniaAPI.manaInfusionRecipes) {
-			if (recipe.getOutput().isItemEqual(stack)) {
+			if (BotaniaModule.isOutput(recipe.getOutput(), stack)) {
 				list.add(recipe);
 			}
 		}
